@@ -1,0 +1,63 @@
+body {
+  margin:0;
+  background:#0b0f1a;
+  color:white;
+  font-family:sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+
+.app h1 {
+  text-align:center;
+  color:#00ffff;
+  text-shadow:0 0 20px rgba(0,255,255,0.6);
+}
+
+.card {
+  background:#111827;
+  padding:20px;
+  border-radius:16px;
+  width:320px;
+  box-shadow:0 0 30px rgba(0,255,255,0.15);
+  animation:pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow:0 0 10px rgba(0,255,255,0.1); }
+  50% { box-shadow:0 0 30px rgba(0,255,255,0.4); }
+  100% { box-shadow:0 0 10px rgba(0,255,255,0.1); }
+}
+
+input, select, button {
+  width:100%;
+  margin:8px 0;
+  padding:10px;
+  border-radius:8px;
+  border:none;
+}
+
+button {
+  background:#00ffff;
+  color:black;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+button:hover {
+  transform:scale(1.05);
+  box-shadow:0 0 15px #00ffff;
+}
+
+.effects {
+  display:flex;
+  flex-direction:column;
+  font-size:14px;
+}
+
+.result {
+  margin-top:10px;
+  font-size:16px;
+}

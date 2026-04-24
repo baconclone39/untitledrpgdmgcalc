@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>데미지 계산기</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>⚔️ 데미지 계산기</h1>
+
+  <select id="weapon"></select>
+
+  <input type="number" id="quality" placeholder="품질 %" value="0">
+  <input type="number" id="upgrade" placeholder="강화 수" value="0">
+  <input type="number" id="stat" placeholder="스탯 %" value="0">
+
+  <button onclick="calc()">계산</button>
+
+  <h2 id="result">0</h2>
+</div>
+
+<script src="weapons.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
