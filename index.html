@@ -2,26 +2,128 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>데미지 계산기</title>
-<link rel="stylesheet" href="style.css">
+<title>⚔️ 데미지 계산기</title>
+
+<style>
+body {
+  background: #0b0f17;
+  color: white;
+  font-family: Arial;
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+.container {
+  width: 400px;
+  background: rgba(20,25,40,0.8);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 0 30px rgba(0,255,255,0.2);
+}
+
+h1 {
+  text-align: center;
+  color: cyan;
+  text-shadow: 0 0 20px cyan;
+}
+
+label {
+  display: block;
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+input, select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  background: #111827;
+  border: 1px solid #333;
+  color: white;
+  border-radius: 6px;
+}
+
+.effects {
+  margin-top: 15px;
+}
+
+.effects label {
+  display: flex;
+  justify-content: space-between;
+  background: #111827;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 6px;
+  cursor: pointer;
+}
+
+button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background: cyan;
+  border: none;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  box-shadow: 0 0 20px cyan;
+}
+
+.result {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.glow {
+  color: cyan;
+  text-shadow: 0 0 15px cyan;
+}
+</style>
 </head>
+
 <body>
 
 <div class="container">
   <h1>⚔️ 데미지 계산기</h1>
 
+  <label>무기 선택</label>
   <select id="weapon"></select>
 
-  <input type="number" id="quality" placeholder="품질 %" value="0">
-  <input type="number" id="upgrade" placeholder="강화 수" value="0">
-  <input type="number" id="stat" placeholder="스탯 %" value="0">
+  <label>품질 (%)</label>
+  <input id="quality" type="number" value="100">
 
-  <button onclick="calc()">계산</button>
+  <label>강화 수치</label>
+  <input id="enhance" type="number" value="0">
 
-  <h2 id="result">0</h2>
+  <label>데미지 스탯 (%)</label>
+  <input id="stat" type="number" value="100">
+
+  <label>체력</label>
+  <input id="hp" type="number" value="100">
+
+  <label>마나코어</label>
+  <input id="mana" type="number" value="0">
+
+  <div class="effects">
+    <label>❄️ 빙관 <input type="checkbox" id="bingwan"></label>
+    <label>🩸 생명포식자 <input type="checkbox" id="lifesteal"></label>
+    <label>🌌 밤결의 낫 <input type="checkbox" id="scythe"></label>
+  </div>
+
+  <button id="calcBtn">계산하기</button>
+
+  <div class="result">
+    <div>데미지: <span id="result" class="glow">0</span></div>
+    <div>DPS: <span id="dps" class="glow">0</span></div>
+  </div>
 </div>
 
-<script src="weapons.js"></script>
 <script src="script.js"></script>
 
 </body>
