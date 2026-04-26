@@ -27,7 +27,6 @@ const WEAPONS = [
   { name: "고대 낚싯대", min: 315, max: 630, speed: 0.7 },
   { name: "심연의 파동", min: 345, max: 690, speed: 0.65 },
 
-  // ===== 🔥 추가된 3개 =====
   { name: "용화도", min: 230, max: 460, speed: 0.6 },
   { name: "심연속의 빛", min: 380, max: 760, speed: 0.65 },
   { name: "심연의 끝", min: 440, max: 880, speed: 0.7 }
@@ -38,16 +37,15 @@ const weaponSelect = document.getElementById("weapon");
 const resultEl = document.getElementById("result");
 const dpsEl = document.getElementById("dps");
 
-// ===== 드롭다운 채우기 =====
+// ===== 드롭다운 =====
 WEAPONS.forEach((w, i) => {
-  const avg = (w.min + w.max) / 2;
   const opt = document.createElement("option");
   opt.value = i;
   opt.textContent = `${w.name} (${w.min}~${w.max})`;
   weaponSelect.appendChild(opt);
 });
 
-// ===== 계산 버튼 =====
+// ===== 계산 =====
 document.getElementById("calcBtn").addEventListener("click", () => {
   const weapon = WEAPONS[weaponSelect.value];
 
@@ -62,44 +60,43 @@ document.getElementById("calcBtn").addEventListener("click", () => {
   const lifesteal = document.getElementById("lifesteal").checked;
   const scythe = document.getElementById("scythe").checked;
 
-  // ===== 공식 =====
+  // ===== 1. 기본 데미지 =====
   let dmg =
     (base / 2) *
     ((quality + 100) / 100) *
     Math.pow(1.07, enhance);
 
-  // 생명포식자
+  // ===== 2. 생명포식자 (추가 후 전체 배율 적용됨) =====
   if (lifesteal) {
     dmg += hp * 0.035;
   }
 
-  // 스탯
+  // ===== 3. 스탯 배율 =====
   dmg *= (100 + stat) / 100;
 
-  // 마나코어
+  // ===== 4. 마나코어 배율 =====
   let manaMul = 0.25;
   if (bingwan) manaMul += 0.05;
   if (scythe) manaMul += 0.0175;
 
   dmg *= 1 + mana * manaMul;
 
-  // DPS
+  // ===== 5. DPS =====
   const dps = dmg / weapon.speed;
 
-  // 애니메이션 출력
+  // ===== 출력 =====
   animateNumber(resultEl, dmg);
   animateNumber(dpsEl, dps);
 });
 
-// ===== 숫자 애니메이션 =====
+// ===== 애니메이션 =====
 function animateNumber(el, target) {
-  let start = 0;
   const duration = 400;
   const startTime = performance.now();
 
   function update(now) {
     const progress = Math.min((now - startTime) / duration, 1);
-    const value = start + (target - start) * progress;
+    const value = target * progress;
 
     el.textContent = Math.floor(value);
 
