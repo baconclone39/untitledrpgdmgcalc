@@ -49,7 +49,7 @@ WEAPONS.forEach((w, i) => {
 document.getElementById("calcBtn").addEventListener("click", () => {
   const weapon = WEAPONS[weaponSelect.value];
 
-  const base = (weapon.min + weapon.max) / 2;
+  const base = (weapon.max) / 1;
   const quality = Number(document.getElementById("quality").value) || 0;
   const enhance = Number(document.getElementById("enhance").value) || 0;
   const stat = Number(document.getElementById("stat").value) || 0;
