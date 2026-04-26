@@ -1,4 +1,3 @@
-
 // ===== 무기 데이터 (최종 29개) =====
 const WEAPONS = [
   { name: "나무 검", min: 10, max: 20, speed: 0.7 },
