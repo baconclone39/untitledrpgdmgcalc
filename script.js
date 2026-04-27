@@ -75,7 +75,7 @@ document.getElementById("calcBtn").addEventListener("click", () => {
   }
 
   // ===== 3. 스탯 배율 =====
-  dmg *= (100 + stat) / 100;
+  dmg *= {(100 + stat) / 100};
 
   // ===== 4. 마나코어 배율 =====
   let manaMul = 0.25;
