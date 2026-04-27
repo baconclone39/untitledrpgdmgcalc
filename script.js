@@ -65,7 +65,7 @@ document.getElementById("calcBtn").addEventListener("click", () => {
 
   // ===== 1. 기본 데미지 =====
   let dmg =
-    (base / 2) *
+    (base / 1) *
     ((quality + 100) / 100) *
     Math.pow(1.07, enhance);
 
