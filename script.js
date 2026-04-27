@@ -71,7 +71,7 @@ document.getElementById("calcBtn").addEventListener("click", () => {
 
   // ===== 2. 생명포식자 (추가 후 전체 배율 적용됨) =====
   if (lifesteal) {
-    dmg += hp * 0.035;
+    dmg += hp * ㅡmanaMul;
   }
 
   // ===== 3. 스탯 배율 =====
