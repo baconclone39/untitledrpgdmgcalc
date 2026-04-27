@@ -75,16 +75,13 @@ document.getElementById("calcBtn").addEventListener("click", () => {
     dmg += hp * 0.035;
   }
 
-  // ===== 3. 스탯 배율 =====
-  dmg *= (100 + stat) / 100;
+// ===== 3. 스탯 배율 =====
 
-  // ===== 4. 마나코어 배율 =====
   let manaMul = 0.25;
   if (bingwan) manaMul += 0.05;
   if (scythe) manaMul += 0.0175;
-
-  dmg *= 1 + mana * manaMul;
-
+  dmg *= (100 + stat * (1 + mana * manaMul)) / 100;
+  
   // ===== 5. DPS =====
   const dps = dmg / weapon.speed;
 
