@@ -30,7 +30,7 @@ const WEAPONS = [
   { name: "용화도", min: 230, max: 460, speed: 0.6 },
   { name: "심연속의 빛", min: 380, max: 760, speed: 0.65 },
   { name: "심연의 끝", min: 440, max: 880, speed: 0.7 },
-  { name: "심연의 끝", min: 440, max: 880, speed: 0.7 },
+
   
   { name: "다크 파이어", min: 140, max: 280, speed: 0.7 },
   { name: "천멸추", min: 180, max: 360, speed: 1.2 }
