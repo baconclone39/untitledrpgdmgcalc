@@ -82,7 +82,7 @@ document.getElementById("calcBtn").addEventListener("click", () => {
   if (bingwan) manaMul += 0.05;
   if (scythe) manaMul += 0.0175;
 
-  dmg *= 1 + mana * manaMul;
+  dmg *= 1 * manaMul;
 
   // ===== 5. DPS =====
   const dps = dmg / weapon.speed;
